@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import './App.css';
 
 function App() {
@@ -13,16 +13,15 @@ function App() {
 
 
   const [type, setType] = useState({
-    id : '',
-    name : '',
+         id : '',
+         name : '',
   });  
   
 
   const changeDropdown = (e) =>{
 
-    e.preventDefault();
-
-     setValue(e.target.value)
+      e.preventDefault();
+      setValue(e.target.value)
   }
 
   const checkVal = () =>{
@@ -61,27 +60,26 @@ function App() {
               <option value="relay">Relay</option>
          </select>
          <button onClick={(e)=>checkVal(e)}>✔</button>
-      </div>
+       </div>
             <div className='inputs-grp'> 
               <input  value={type.id} />
-              <input  value={type.name} />
-              {type.module ==='Modules' ?
-                <div className=''>
-                    <select  onChange={(e)=>changeMod(e)}>
-                       <option selected='selected'>Modules</option>
+               <input  value={type.name} />
+                {type.module ==='Modules' ?
+                 <div className=''>
+                   <select  onChange={(e)=>changeMod(e)}>
+                      <option selected='selected'>Modules</option>
                        {data.map( item => (
-                         <option value={item.id+1}>{item.id+1}</option>
-                       ))}
-                    </select>
-                      <div className='spc-inp'>{ 
-                          numb.map( item => (
-                            <input placeholder='.....' key={item.id} />
+                        <option value={item.id+1}>{item.id+1}</option>
                           ))}
-                      </div>
+                     </select>
+                    <div className='spc-inp'>{ 
+                          numb.map( item => (
+                          <input placeholder='.....' key={item.id} />
+                      ))}
+                 </div>
               </div>:''}
-        </div>
-
-    </div>
+           </div>
+      </div>
   );
 }
 
